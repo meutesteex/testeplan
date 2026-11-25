@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Início | Tração</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* Cores: troque aqui. A secundária veio como "#80de6" (5 dígitos); usei #80de60. */
+:root{--bg:#ededed;--ink:#000;--green:#80de60;--white:#fff;--muted:rgba(0,0,0,.62);--pad:max(5.9vw,calc((100vw - 1240px)/2))}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;font-weight:400;background:var(--bg);color:var(--ink);line-height:1.4;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.go{flex:none;width:32px;height:32px;border-radius:50%;background:var(--ink);color:var(--white);display:grid;place-items:center}
+.go svg{width:14px;height:14px}
+
+/* faixa do topo */
+.band{background:var(--green);padding:26px var(--pad) 270px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:56px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px;letter-spacing:-.03em}
+.mark{width:36px;height:36px;border-radius:12px;background:var(--ink);color:var(--green);display:grid;place-items:center}
+.mark svg{width:21px;height:21px}
+.menu{display:flex;gap:4px;background:var(--ink);border-radius:999px;padding:5px;font-size:14px}
+.menu a{padding:9px 18px;border-radius:999px;color:var(--white)}
+.menu a.on{background:var(--green);color:var(--ink);font-weight:700}
+.me{display:flex;align-items:center;gap:10px}
+.bell{position:relative;width:40px;height:40px;border-radius:50%;background:var(--ink);display:grid;place-items:center;border:0;cursor:pointer}
+.bell svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.bell i{position:absolute;top:9px;right:10px;width:9px;height:9px;border-radius:50%;background:var(--green);border:2px solid var(--ink)}
+.user{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700;background:var(--bg);border-radius:999px;padding:4px 16px 4px 4px}
+.user b{width:32px;height:32px;border-radius:50%;background:var(--ink);color:var(--green);display:grid;place-items:center}
+.pillrow{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.pill{width:52%;display:flex;align-items:center;justify-content:space-between;border:2px solid var(--ink);border-radius:999px;padding:12px 14px 12px 34px;font-size:clamp(1.7rem,3.8vw,3.2rem);letter-spacing:-.045em;line-height:1.1}
+.pill .go{width:clamp(36px,4vw,52px);height:clamp(36px,4vw,52px)}
+.hello{text-align:right;font-size:15px;line-height:1.35}
+
+/* cards */
+main{padding:0 var(--pad) 40px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,3.6vw,49px);margin-top:-170px;position:relative}
+.cardlink{display:block}
+.card{aspect-ratio:2/3;border-radius:22px;padding:16px;display:flex;flex-direction:column;justify-content:space-between;gap:12px;overflow:hidden}
+.card.w{background:var(--white)}
+.card.k{background:var(--ink);color:var(--white)}
+.tag{align-self:flex-start;font-size:12px;font-weight:700;border-radius:999px;padding:4px 12px;background:var(--ink);color:var(--white)}
+.k .tag{background:var(--green);color:var(--ink)}
+.cta{display:flex;align-items:center;justify-content:space-between;gap:8px;border-radius:999px;padding:5px 5px 5px 16px;font-size:14px;font-weight:700;background:var(--ink);color:var(--white)}
+.cta .go{width:30px;height:30px;background:var(--green);color:var(--ink)}
+.k .cta{background:var(--white);color:var(--ink)}
+.k .cta .go{background:var(--ink);color:var(--green)}
+.cardlink:hover .cta{background:var(--green);color:var(--ink)}
+.cardlink:hover .cta .go{background:var(--ink);color:var(--green)}
+.cap{margin-top:16px;text-align:center;font-size:clamp(1rem,1.9vw,1.55rem);line-height:.98;letter-spacing:-.04em}
+.cap b{font-weight:700}
+
+/* arte dos cards */
+.ad{background:var(--ink);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:9px;color:var(--white)}
+.ad .row{display:flex;align-items:center;gap:8px}
+.ad .av{width:20px;height:20px;border-radius:50%;background:var(--green)}
+.ad .ln{height:6px;border-radius:3px;background:rgba(255,255,255,.4);width:50%}
+.ad .img{height:clamp(60px,8vw,110px);border-radius:10px;background:var(--green)}
+.ad .buy{font-size:12px;font-weight:700;background:var(--white);color:var(--ink);border-radius:999px;padding:6px 0;text-align:center}
+.txt b{display:block;font-size:clamp(.85rem,1.3vw,1.1rem);line-height:1.1;letter-spacing:-.02em;margin-bottom:8px}
+.txt p{font-size:clamp(.72rem,1vw,.85rem);color:rgba(255,255,255,.68)}
+.set div{display:flex;justify-content:space-between;align-items:center;font-size:clamp(.72rem,1vw,.86rem);padding:9px 0;border-bottom:1px solid var(--ink)}
+.set b{font-weight:700}
+.tg{width:30px;height:17px;border-radius:999px;background:rgba(0,0,0,.25);position:relative}
+.tg::after{content:"";position:absolute;top:2px;left:2px;width:13px;height:13px;border-radius:50%;background:#fff}
+.tg.on{background:var(--ink)}.tg.on::after{left:15px;background:var(--green)}
+.low small{font-size:12px;color:rgba(255,255,255,.65)}
+.low strong{display:block;font-size:clamp(1.6rem,2.8vw,2.4rem);letter-spacing:-.05em;line-height:1.1}
+.low svg{width:100%;height:70px;margin-top:8px}
+
+/* divisória e título */
+.rule{border:0;border-top:1.5px solid var(--ink);width:75%;margin:120px auto 80px}
+h2{font-weight:400;font-size:clamp(2.1rem,4.3vw,3.6rem);letter-spacing:-.045em;line-height:.98;max-width:15em}
+.mistakes{display:grid;grid-template-columns:1fr 1fr;gap:32px 56px;margin-top:56px}
+.mistakes a{display:flex;justify-content:space-between;align-items:center;gap:16px;border-bottom:1px solid var(--ink);padding-bottom:18px}
+.mistakes h3{font-weight:400;font-size:22px;letter-spacing:-.025em;line-height:1.15}
+.mistakes p{font-size:14px;color:var(--muted);margin-top:6px;max-width:380px}
+.mistakes a:hover .go{background:var(--green);color:var(--ink)}
+.next{margin-top:96px;background:var(--ink);color:var(--white);border-radius:30px;padding:36px clamp(24px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.next h3{font-size:clamp(1.5rem,2.6vw,2.1rem);letter-spacing:-.035em;line-height:1.05;font-weight:700}
+.next p{margin-top:8px;color:rgba(255,255,255,.65);max-width:460px;font-size:15px}
+.btn{border:0;font:inherit;font-weight:700;font-size:15px;background:var(--green);color:var(--ink);border-radius:999px;padding:15px 28px;cursor:pointer}
+footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:28px var(--pad) 36px;font-size:14px;color:var(--muted)}
+footer ul{display:flex;gap:22px}
+
+@media(max-width:900px){
+  .menu,.hello{display:none}
+  .band{padding-bottom:220px}
+  .pill{width:100%}
+  .cards{grid-template-columns:1fr 1fr;row-gap:28px;margin-top:-130px}
+  .card{aspect-ratio:auto;min-height:330px}
+  .mistakes{grid-template-columns:1fr}
+  .rule{margin:80px auto 56px}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="seta" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="logo" viewBox="0 0 24 24"><path d="M3 17l5-6 4 3 8-9M15 5h5v5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<div class="band">
+  <header class="top">
+    <a class="brand" href="#"><span class="mark"><svg><use href="#logo"/></svg></span>Tração</a>
+    <nav class="menu" aria-label="Principal">
+      <a class="on" href="#">Início</a>
+      <a href="#">Modelos</a>
+      <a href="#">Copys</a>
+      <a href="#">Configurações</a>
+      <a href="#">Resultados</a>
+    </nav>
+    <div class="me">
+      <button class="bell" type="button" aria-label="Notificações"><svg viewBox="0 0 24 24"><path d="M6 17h12l-1.5-2v-4a4.5 4.5 0 0 0-9 0v4L6 17zM10 20a2 2 0 0 0 4 0"/></svg><i></i></button>
+      <a class="user" href="#"><b>M</b>Marina</a>
+    </div>
+  </header>
+  <div class="pillrow">
+    <a class="pill" href="#">Novidades<span class="go"><svg><use href="#seta"/></svg></span></a>
+    <p class="hello"><b>Olá, Marina</b><br>3 novidades esta semana</p>
+  </div>
+</div>
+
+<main>
+  <ul class="cards">
+    <li>
+      <a class="cardlink" href="#">
+        <div class="card w">
+          <span class="tag">128 modelos</span>
+          <div class="ad"><div class="row"><i class="av"></i><i class="ln"></i></div><div class="img"></div><div class="buy">Comprar agora</div></div>
+          <span class="cta">Abrir modelos<span class="go"><svg><use href="#seta"/></svg></span></span>
+        </div>
+        <p class="cap">Modelos de <b>anúncios</b> que funcionam</p>
+      </a>
+    </li>
+    <li>
+      <a class="cardlink" href="#">
+        <div class="card k">
+          <span class="tag">64 copys</span>
+          <div class="txt"><b>Seu anúncio aparece, mas ninguém clica?</b><p>Mostre o problema na primeira frase, a solução na segunda e termine com um convite claro.</p></div>
+          <span class="cta">Copiar copys<span class="go"><svg><use href="#seta"/></svg></span></span>
+        </div>
+        <p class="cap"><b>Copys</b> prontas</p>
+      </a>
+    </li>
+    <li>
+      <a class="cardlink" href="#">
+        <div class="card w">
+          <span class="tag">9 guias</span>
+          <div class="set">
+            <div><span>Objetivo</span><b>Vendas</b></div>
+            <div><span>Orçamento diário</span><b>R$ 30</b></div>
+            <div><span>Pixel instalado</span><i class="tg on"></i></div>
+            <div><span>Público amplo</span><i class="tg"></i></div>
+          </div>
+          <span class="cta">Ver passo a passo<span class="go"><svg><use href="#seta"/></svg></span></span>
+        </div>
+        <p class="cap">Instruções para <b>configurações</b></p>
+      </a>
+    </li>
+    <li>
+      <a class="cardlink" href="#">
+        <div class="card k">
+          <span class="tag">Diagnóstico</span>
+          <div class="low"><small>Custo por venda</small><strong>R$ 64</strong>
+            <svg viewBox="0 0 200 70" preserveAspectRatio="none"><g fill="#fff" opacity=".25"><rect x="0" y="20" width="22" height="50" rx="4"/><rect x="34" y="14" width="22" height="56" rx="4"/><rect x="68" y="28" width="22" height="42" rx="4"/><rect x="102" y="36" width="22" height="34" rx="4"/><rect x="136" y="48" width="22" height="22" rx="4"/></g><rect x="170" y="58" width="22" height="12" rx="4" fill="#80de60"/><line x1="0" y1="10" x2="200" y2="10" stroke="#80de60" stroke-width="2" stroke-dasharray="5 5"/></svg>
+          </div>
+          <span class="cta">Diagnosticar<span class="go"><svg><use href="#seta"/></svg></span></span>
+        </div>
+        <p class="cap">Resultados <b>baixos</b></p>
+      </a>
+    </li>
+  </ul>
+
+  <hr class="rule">
+
+  <h2>O que não fazer pra evitar desperdício de tempo e dinheiro:</h2>
+
+  <div class="mistakes">
+    <a href="#"><div><h3>Impulsionar sem um objetivo</h3><p>Curtidas e vendas são campanhas diferentes, e a verba vai para onde você mandar.</p></div><span class="go"><svg><use href="#seta"/></svg></span></a>
+    <a href="#"><div><h3>Mexer na campanha todo dia</h3><p>Cada mudança reinicia o aprendizado e o custo costuma subir.</p></div><span class="go"><svg><use href="#seta"/></svg></span></a>
+    <a href="#"><div><h3>Escolher um público amplo ou estreito demais</h3><p>Veja o tamanho ideal para o seu tipo de negócio.</p></div><span class="go"><svg><use href="#seta"/></svg></span></a>
+    <a href="#"><div><h3>Usar a mesma copy em todos os anúncios</h3><p>Sem variação, você nunca descobre o que realmente atrai.</p></div><span class="go"><svg><use href="#seta"/></svg></span></a>
+    <a href="#"><div><h3>Enviar para o site sem o pixel</h3><p>Sem ele, a plataforma não sabe quem comprou e não consegue otimizar.</p></div><span class="go"><svg><use href="#seta"/></svg></span></a>
+    <a href="#"><div><h3>Desligar o anúncio cedo demais</h3><p>Espere pelo menos 3 dias antes de decidir se funcionou.</p></div><span class="go"><svg><use href="#seta"/></svg></span></a>
+  </div>
+
+  <aside class="next">
+    <div>
+      <h3>Não sabe por onde começar?</h3>
+      <p>Responda 5 perguntas e a plataforma indica o primeiro guia para a sua conta.</p>
+    </div>
+    <button class="btn" type="button">Fazer diagnóstico</button>
+  </aside>
+</main>
+
+<footer>
+  <span>© 2026 Tração</span>
+  <ul><li><a href="#">Ajuda</a></li><li><a href="#">Termos</a></li><li><a href="#">Privacidade</a></li></ul>
+</footer>
+
+</body>
+</html>
